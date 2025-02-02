@@ -1,0 +1,286 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+About Me - Shivam Rathod
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    /* Page Background - matching other pages */
+    body {
+        background: linear-gradient(135deg, rgb(56, 15, 100) 0%, #2575fc 100%);
+        color: white;
+    }
+
+    /* Jumbotron Styling - matching other pages */
+    .jumbotron {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, rgba(56, 15, 100, 0.8), rgba(37, 117, 252, 0.8));
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        margin-bottom: 40px;
+    }
+
+    .jumbotron h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #ffcc70, #ff7eb3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .about-section {
+        padding: 40px;
+        background: rgba(20, 20, 40, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 1;
+        color: white;
+    }
+    
+    .profile-container {
+        position: relative;
+        margin-bottom: 40px;
+    }
+
+    .profile-picture {
+        border-radius: 50%;
+        border: 5px solid #2575fc;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 30px;
+        box-shadow: 0 0 20px rgba(37, 117, 252, 0.5);
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    .highlight-text {
+        color: #2575fc;
+        font-weight: bold;
+    }
+    
+    p {
+        text-align: justify;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        color: #e0e0e0;
+    }
+
+    /* Quick Info Cards */
+    .quick-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+    }
+
+    .info-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .info-card i {
+        font-size: 2rem;
+        color: #ff7eb3;
+        margin-bottom: 15px;
+    }
+
+    .info-card p {
+        text-align: center;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    /* Timeline Section */
+    .timeline {
+        position: relative;
+        margin: 40px 0;
+        padding-left: 50px;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: linear-gradient(to bottom, #ffcc70, #ff7eb3);
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 30px;
+        padding-left: 30px;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -39px;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ff7eb3;
+        border: 4px solid rgba(20, 20, 40, 0.85);
+    }
+
+    .timeline-item p {
+        text-align: left;
+        margin-bottom: 15px;
+        line-height: 1.8;
+    }
+
+    /* Interest Tags */
+    .interests {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .interest-tag {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        margin: 5px;
+        text-align: center;
+    }
+
+    .interest-tag:hover {
+        background: linear-gradient(45deg, #ffcc70, #ff7eb3);
+        transform: translateY(-2px);
+    }
+
+    /* Stats Section */
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ff7eb3;
+    }
+
+    @media (max-width: 768px) {
+        .timeline-item p {
+            text-align: center;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">About Me</h1>
+    </div>
+
+    <div class="about-section">
+        <div class="profile-container text-center">
+            <img src="{% static 'profile-pic.jpg' %}" alt="Profile Picture" class="profile-picture">
+        </div>
+
+        <!-- Quick Info Cards -->
+        <div class="quick-info">
+            <div class="info-card">
+                <i class="fas fa-code"></i>
+                <h3>Developer</h3>
+                <p>Full Stack Developer with focus on Python & Django</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-pen"></i>
+                <h3>Writer</h3>
+                <p>Content Writer at Fated Destiny | Quotes & Poetry</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-brain"></i>
+                <h3>Learner</h3>
+                <p>Continuous learner in Tech & Cybersecurity</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Who Am I?</h3>
+                <p>Hello! I'm <span class="highlight-text">Shivam Rathod</span>, a passionate problem solver and tech enthusiast, currently focused on Python, Django, and AIML.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>My Journey</h3>
+                <p>Started with C++, ventured into web development, and now exploring the realms of AI/ML and cybersecurity.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>What I Do</h3>
+                <p>I build web applications, write content for Fated Destiny, create quotes and poems, and continuously learn new technologies.</p>
+            </div>
+        </div>
+
+        <!-- Interests -->
+        <h3>Interests & Hobbies</h3>
+        <div class="interests">
+            <span class="interest-tag">Web Development</span>
+            <span class="interest-tag">Artificial Intelligence</span>
+            <span class="interest-tag">Cybersecurity</span>
+            <span class="interest-tag">Poetry Writing</span>
+            <span class="interest-tag">Quote Writing</span>
+            <span class="interest-tag">Problem Solving</span>
+            <span class="interest-tag">Reading</span>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div>Projects</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5⭐</div>
+                <div>HackerRank</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div>Certifications</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

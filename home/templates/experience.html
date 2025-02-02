@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Experience - Shivam Rathod
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Page Background - matching other pages */
+    body {
+        background: linear-gradient(135deg, rgb(56, 15, 100) 0%, #2575fc 100%);
+        color: white;
+    }
+
+    /* Jumbotron Styling - matching other pages */
+    .jumbotron {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, rgba(56, 15, 100, 0.8), rgba(37, 117, 252, 0.8));
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        margin-bottom: 40px;
+    }
+
+    .jumbotron h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #ffcc70, #ff7eb3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .featurette {
+        padding: 30px;
+        margin-bottom: 30px;
+        background: rgba(20, 20, 40, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .featurette-heading {
+        font-size: 2.5rem;
+        color: #2575fc;
+        margin-bottom: 20px;
+    }
+
+    .featurette img {
+        max-width: 300px;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .featurette img:hover {
+        transform: scale(1.05);
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    li {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        color: #e0e0e0;
+    }
+
+    li strong {
+        color: #ffcc70;
+        margin-right: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">My Experience</h1>
+    </div>
+
+    <div class="row featurette justify-content-center align-items-center">
+        <div class="col-md-7">
+            <h2 class="featurette-heading pl-3">Internship</h2>
+            <ul>
+                <li><strong>Position:</strong> Python Development Intern</li>
+                <li><strong>Company:</strong> Cognifyz Technologies</li>
+                <li><strong>Duration:</strong> 1 month</li>
+                <li><strong>Description:</strong> Gained hands-on experience in Python development, working on real-world
+                    projects.</li>
+            </ul>
+        </div>
+        <div class="col-md-5">
+            <img src="{% static 'cognifyz_tech.png' %}" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" alt="Cognifyz Logo">
+        </div>
+    </div>
+
+    <div class="row featurette justify-content-center align-items-center">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading pl-3">Coding Achievements</h2>
+            <ul>
+                <li><strong>Platform:</strong> HackerRank</li>
+                <li><strong>Python:</strong> Earned a Gold 5⭐ Badge</li>
+                <li><strong>C++:</strong> Earned a Gold 5⭐ Badge</li>
+                <li><strong>Problem Solving:</strong> Actively solving algorithmic challenges</li>
+                <li><strong>Achievement:</strong> Enhanced problem-solving skills and proficiency in multiple languages</li>
+            </ul>
+        </div>
+        <div class="col-md-5">
+            <div class="achievement-badges">
+                <img src="{% static 'hackerrank1.png' %}" class="badge-img" alt="HackerRank Logo">
+                {% comment %} <img src="{% static 'python-badge.png' %}" class="badge-img" alt="Python Badge">
+                <img src="{% static 'cpp-badge.png' %}" class="badge-img" alt="C++ Badge"> {% endcomment %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row featurette justify-content-center align-items-center">
+        <div class="col-md-7">
+            <h2 class="featurette-heading pl-3">Django Projects</h2>
+            <ul>
+                <li><strong>Portfolio Website:</strong> A personal portfolio showcasing my skills and achievements</li>
+                <li><strong>Blog Platform:</strong> Working on a feature-rich blogging platform with user authentication</li>
+                <li><strong>E-commerce Site:</strong> Developing an online store with payment integration</li>
+                <li><strong>Tech Stack:</strong> Django, PostgreSQL, Bootstrap, JavaScript</li>
+            </ul>
+        </div>
+        <div class="col-md-5">
+            <img src="{% static 'django-proj.png' %}" class="project-img" alt="Django Projects">
+        </div>
+    </div>
+
+    <div class="row featurette justify-content-center align-items-center">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading pl-3">Learning Journey</h2>
+            <ul>
+                <li><strong>AI/ML:</strong> Exploring machine learning algorithms and data science</li>
+                <li><strong>Cybersecurity:</strong> Learning about network security and ethical hacking</li>
+                <li><strong>Google Certifications:</strong> Completed cybersecurity courses</li>
+                <li><strong>Current Focus:</strong> Deep learning and penetration testing</li>
+            </ul>
+        </div>
+        <div class="col-md-5">
+            <div class="tech-stack-images">
+                <img src="{% static 'tech-stacks.png' %}" class="tech-img" alt="tech-stacks">
+                {% comment %} <img src="{% static 'ai-ml.png' %}" class="tech-img" alt="AI/ML">
+                <img src="{% static 'cybersecurity.png' %}" class="tech-img" alt="Cybersecurity"> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Contacts - Shivam Rathod
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<style>
+    /* Page Background - matching other pages */
+    body {
+        background: linear-gradient(135deg, rgb(56, 15, 100) 0%, #2575fc 100%);
+        color: white;
+    }
+
+    /* Jumbotron Styling - matching other pages */
+    .jumbotron {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, rgba(56, 15, 100, 0.8), rgba(37, 117, 252, 0.8));
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        margin-bottom: 40px;
+    }
+
+    .jumbotron h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #ffcc70, #ff7eb3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Card Styling - matching dark theme */
+    .card {
+        min-height: 300px;
+        height: 100%;
+        border-radius: 12px;
+        background: rgba(20, 20, 40, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        padding: 15px;
+        color: white;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-img-top {
+        width: 60px;
+        height: 60px;
+        margin: 15px auto;
+        padding: 5px;
+        transition: transform 0.2s ease;
+    }
+
+    .card-img-top:hover {
+        transform: scale(1.1);
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 15px;
+    }
+
+    .card-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: white;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+        color: #e0e0e0;
+        text-align: center;
+        margin-top: auto;
+        padding-top: 15px;
+    }
+
+    /* Button Styling */
+    .btn-custom {
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        width: 100%;
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    .btn-custom:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
+
+    /* Button Colors */
+    .btn-primary-custom { background-color: #0077b5; }
+    .btn-dark-custom { background-color: #24292f; }
+    .btn-green-custom { background-color: #00b600; }
+    .btn-danger-custom { background-color: #d93025; }
+    .btn-orange-custom { background-color: #ff6f00; }
+    .btn-yellow-custom { background-color: #f4b400; }
+
+    /* Link Styling */
+    .card-body a {
+        text-decoration: none;
+        color: white;
+        display: block;
+        width: 100%;
+    }
+
+    .card-body a:hover {
+        text-decoration: none;
+        color: white;
+    }
+
+    /* Grid Layout */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -10px;
+    }
+
+    .col {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (max-width: 992px) {
+        .col {
+            flex: 1 1 calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .col {
+            flex: 1 1 100%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Get in Touch</h1>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+            <div class="card text-center">
+                <img src="{% static 'linkedIn.png' %}" class="card-img-top" alt="LinkedIn Logo">
+                <div class="card-body">
+                    <h5 class="card-title">LinkedIn</h5>
+                    <button class="btn btn-primary-custom btn-custom">
+                        <a href="https://www.linkedin.com/in/shivamrathod021/" target="_blank">Connect</a>
+                    </button>
+                    <p class="card-text">Connect professionally and explore my career journey.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card text-center">
+                <img src="{% static 'github-mark.png' %}" class="card-img-top" alt="GitHub Logo">
+                <div class="card-body">
+                    <h5 class="card-title">GitHub</h5>
+                    <button class="btn btn-dark-custom btn-custom">
+                        <a href="https://github.com/shivamr021" target="_blank">View Projects</a>
+                    </button>
+                    <p class="card-text">Check out my repositories and contributions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card text-center">
+                <img src="{% static 'hackerrank.png' %}" class="card-img-top" alt="HackerRank Logo">
+                <div class="card-body">
+                    <h5 class="card-title">HackerRank</h5>
+                    <button class="btn btn-green-custom btn-custom">
+                        <a href="https://www.hackerrank.com/profile/shivamrathod145" target="_blank">View Profile</a>
+                    </button>
+                    <p class="card-text">See my coding challenges and achievements.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card text-center">
+                <img src="{% static 'leetcode.png' %}" class="card-img-top" alt="LeetCode Logo">
+                <div class="card-body">
+                    <h5 class="card-title">LeetCode</h5>
+                    <button class="btn btn-orange-custom btn-custom">
+                        <a href="https://leetcode.com/u/shivam021/" target="_blank">View Challenges</a>
+                    </button>
+                    <p class="card-text">Follow my problem-solving journey.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card text-center">
+                <img src="{% static 'credly.png' %}" class="card-img-top" alt="Credly Logo">
+                <div class="card-body">
+                    <h5 class="card-title">Credly</h5>
+                    <button class="btn btn-yellow-custom btn-custom">
+                        <a href="https://www.credly.com/users/shivamrathod021/" target="_blank">View Certifications</a>
+                    </button>
+                    <p class="card-text">See my earned certifications and achievements.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card text-center">
+                <img src="{% static 'gmail.png' %}" class="card-img-top" alt="Gmail Logo">
+                <div class="card-body">
+                    <h5 class="card-title">Email Me</h5>
+                    <button class="btn btn-danger-custom btn-custom">
+                        <a href="mailto:shivamrathod145@gmail.com">Send Email</a>
+                    </button>
+                    <p class="card-text">Reach out for inquiries or collaborations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

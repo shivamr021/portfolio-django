@@ -1,0 +1,344 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Certifications - Shivam Rathod
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/certifications.css' %}">
+<style>
+    /* Body Background */
+    body {
+        background: linear-gradient(135deg, rgb(56, 15, 100) 0%, #2575fc 100%);
+        color: white;
+    }
+
+    /* Jumbotron Style for Title */
+    .jumbotron {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, rgba(56, 15, 100, 0.8), rgba(37, 117, 252, 0.8));
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        margin-bottom: 40px;
+    }
+
+    .jumbotron h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #ffcc70, #ff7eb3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Certificate Card Styling */
+    .certificate-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+        border-radius: 12px;
+        background: rgba(20, 20, 40, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+    }
+
+    /* Card Content */
+    .certificate-card .content {
+        max-width: 80%;
+        text-align: left;
+    }
+
+    /* Certificate Card Image */
+    .certificate-card img {
+        width: 600px;
+        height: 275px;
+        border-radius: 8px;
+        object-fit: cover;
+        margin: 10px;
+    }
+
+    /* Title and Text */
+    .certificate-card h3 {
+        font-size: 1.75rem;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .certificate-card p {
+        font-size: 1rem;
+        margin: 10px 0;
+    }
+
+    /* List Style */
+    .certificate-card ul {
+        padding-left: 20px;
+    }
+
+    .certificate-card li {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* Row and Column Layout */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .col-12 {
+        flex: 1 1 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+
+    /* Update existing styles */
+    .certification-card {
+        background: rgba(20, 20, 40, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .certification-image {
+        width: 50%;
+        height: 300px;
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+    }
+
+    .certification-content {
+        padding: 20px;
+    }
+
+    /* Responsive Grid */
+    .certifications-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 20px 0;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .certifications-container {
+            grid-template-columns: 1fr;
+            padding: 15px;
+        }
+
+        .certification-card {
+            margin-bottom: 20px;
+        }
+
+        .certification-image {
+            width: 100%;
+            height: 250px;
+        }
+
+        .container {
+            padding: 10px;
+        }
+
+        .jumbotron {
+            padding: 40px 15px;
+            margin-bottom: 20px;
+        }
+
+        .certification-content {
+            padding: 15px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .certification-image {
+            max-height: 200px;
+        }
+
+        .certification-card {
+            margin: 10px 0;
+        }
+    }
+
+    /* Certificate Layout */
+    .certification-row {
+        display: flex;
+        background: rgba(20, 20, 40, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .certification-image {
+        width: 50%;
+        height: auto;
+        object-fit: cover;
+        padding: 20px;
+    }
+
+    .certification-content {
+        width: 50%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .certification-row:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    /* Card Layout for Mobile */
+    .certification-card {
+        display: none;
+        background: rgba(20, 20, 40, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .certification-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        padding: 15px;
+    }
+
+    .certification-card .certification-content {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .certification-row {
+            display: none;
+        }
+
+        .certification-card {
+            display: block;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">My Certifications</h1>
+    </div>
+
+    <!-- Desktop Layout -->
+    <div class="certifications-desktop">
+        <!-- IBM Certification -->
+        <div class="certification-row">
+            <img src="{% static 'certificates/ibm-wp.jpg' %}" class="certification-image" alt="IBM Certification">
+            <div class="certification-content">
+                <h3>IBM SkillsBuild Winter Certification Program</h3>
+                <p>Successfully completed the IBM SkillsBuild Winter Certification Program: "Turning Data into Decisions using Python" with CSRBOX (Dec 23, 2024 - Jan 6, 2025).</p>
+                <ul>
+                    <li>✅ Python programming for data analytics</li>
+                    <li>✅ Data visualization techniques</li>
+                    <li>✅ Analyzing datasets for insights</li>
+                    <li>✅ Exploring Jupyter Notebooks</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Google Certification -->
+        <div class="certification-row">
+            <img src="{% static 'certificates/google-cs-1.jpg' %}" class="certification-image" alt="Google Certification">
+            <div class="certification-content">
+                <h3>Google Foundations of Cybersecurity</h3>
+                <p>Earned the Google Foundations of Cybersecurity certification through Grow with Google on Coursera (Jan 2024).</p>
+                <ul>
+                    <li>✅ Cybersecurity fundamentals</li>
+                    <li>✅ Ethics in cybersecurity</li>
+                    <li>✅ NIST Cybersecurity Framework</li>
+                    <li>✅ INFOSEC and historical attacks</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Google Play It Safe -->
+        <div class="certification-row">
+            <img src="{% static 'certificates/google-cs-2.jpg' %}" class="certification-image" alt="Google Play It Safe">
+            <div class="certification-content">
+                <h3>Google Play It Safe: Manage Security Risks</h3>
+                <p>Completed the Google Play It Safe certification through Grow with Google on Coursera (Jan 2024). 
+                   Credential ID: JHJ46ZCSAV88.</p>
+                <ul>
+                    <li>✅ Security audits</li>
+                    <li>✅ NIST Risk Management Framework (RMF)</li>
+                    <li>✅ Incident response playbooks</li>
+                    <li>✅ NIST Cybersecurity Framework (CSF)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Microsoft Certification -->
+        <div class="certification-row">
+            <img src="{% static 'certificates/microsoft-cs.jpg' %}" class="certification-image" alt="Microsoft Certification">
+            <div class="certification-content">
+                <h3>Microsoft Introduction to Computers and Operating Systems</h3>
+                <p>Achieved certification in "Microsoft Introduction to Computers and Operating Systems and Security".</p>
+                <ul>
+                    <li>✅ Cybersecurity fundamentals</li>
+                    <li>✅ Cloud computing principles</li>
+                    <li>✅ Computer architecture</li>
+                    <li>✅ Operating systems</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Layout -->
+    <div class="certifications-mobile">
+        <!-- IBM Certification Card -->
+        <div class="certification-card">
+            <!-- Same content as above but in card format -->
+        </div>
+
+        <!-- Google Play It Safe Mobile Card -->
+        <div class="certification-card">
+            <img src="{% static 'certificates/google-cs-2.jpg' %}" class="certification-image" alt="Google Play It Safe">
+            <div class="certification-content">
+                <h3>Google Play It Safe: Manage Security Risks</h3>
+                <p>Completed the Google Play It Safe certification through Grow with Google on Coursera (Jan 2024).</p>
+                <ul>
+                    <li>✅ Security audits</li>
+                    <li>✅ NIST Risk Management Framework (RMF)</li>
+                    <li>✅ Incident response playbooks</li>
+                    <li>✅ NIST Cybersecurity Framework (CSF)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Microsoft Certification Mobile Card -->
+        <div class="certification-card">
+            <img src="{% static 'certificates/microsoft-cs.jpg' %}" class="certification-image" alt="Microsoft Certification">
+            <div class="certification-content">
+                <h3>Microsoft Introduction to Computers and Operating Systems</h3>
+                <p>Achieved certification in "Microsoft Introduction to Computers and Operating Systems and Security".</p>
+                <ul>
+                    <li>✅ Cybersecurity fundamentals</li>
+                    <li>✅ Cloud computing principles</li>
+                    <li>✅ Computer architecture</li>
+                    <li>✅ Operating systems</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
