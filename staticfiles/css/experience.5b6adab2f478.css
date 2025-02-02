@@ -1,0 +1,33 @@
+body {
+    background-color: #f8f9fa;
+}
+
+h1, h2 {
+    color: #007bff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    background-color: #e9ecef;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+li:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}

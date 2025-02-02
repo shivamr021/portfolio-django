@@ -1,0 +1,107 @@
+:root {
+    --primary-color: #eaca14;
+    --hover-color: #eaca1441;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Adding padding to avoid content overlapping with navbar */
+.skill-section {
+    margin-top: 120px;  /* Adjusted for fixed navbar */
+    padding-bottom: 30px;
+}
+
+.skill-section-heading {
+    text-align: center;
+}
+
+.skill-section-heading::after {
+    content: '🕸️';
+}
+
+.skill-section-desc {
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.tab:hover {
+    color: #eaca14;
+}
+
+.active-tab {
+    background-color: var(--hover-color);
+    border-radius: 5px;
+}
+
+.skills-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Initially hide all sections */
+.skill-frontend, .skill-backend, .skill-other {
+    display: none;
+}
+
+/* Show active sections */
+.skill-frontend.active, .skill-backend.active, .skill-other.active {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skill {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.338);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+}
+
+.skill img {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+/* Hover effect */
+.skill:hover {
+    background-color: var(--hover-color);
+}
+
+/* Skills page content fix */
+body.skills-page .navbar {
+    padding: 15px 0; /* Ensures the same padding as the global navbar */
+}
+
+/* Add margin-top to skill section to avoid overlap */
+.skill-section {
+    margin-top: 100px; /* Give space for fixed navbar */
+}
+
+/* Ensure no horizontal overflow */
+body.skills-page {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
